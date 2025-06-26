@@ -1,4 +1,6 @@
-﻿using ControleDeBar.ConsoleApp.Compartilhado;
+﻿using ControleDeBar.Compartilhado;
+using ControleDeBar.ConsoleApp.Compartilhado;
+using ControleDeBar.ModuloConta;
 
 namespace ControleDeBar
 {
@@ -22,16 +24,32 @@ namespace ControleDeBar
                 if (char.ToUpper(opcaoEscolhida) == 'S')
                     break;
 
-                switch (opcaoEscolhida)
+                if (telaEscolhida is TelaConta telaConta)
                 {
-                    case '1': telaEscolhida.CadastrarRegistro(); break;
+                    switch (opcaoEscolhida)
+                    {
+                        case '1': telaConta.CadastrarRegistro(); break;
 
-                    case '2': telaEscolhida.EditarRegistro(); break;
+                        case '2': telaConta.ApresentarMenuGestaoPedidos(); break;
 
-                    case '3': telaEscolhida.ExcluirRegistro(); break;
-
-                    case '4': telaEscolhida.VisualizarRegistros(true); break;
+                        case '3': telaConta.VisualizarRegistros(true); break;
+                    }
                 }
+                else
+                {
+                    switch (opcaoEscolhida)
+                    {
+                        case '1': telaEscolhida.CadastrarRegistro(); break;
+
+                        case '2': telaEscolhida.EditarRegistro(); break;
+
+                        case '3': telaEscolhida.ExcluirRegistro(); break;
+
+                        case '4': telaEscolhida.VisualizarRegistros(true); break;
+                    }
+                }
+
+
             }
         }
     }

@@ -1,10 +1,11 @@
 ﻿
 
+using ControleDeBar.Compartilhado;
 using ControleDeBar.ConsoleApp.Compartilhado;
 
 namespace ControleDeBar.ModuloMesa
 {
-    public class TelaMesa : TelaBase <Mesa>
+    public class TelaMesa : TelaBase <Mesa>, ITela
     {
         public TelaMesa(RepositorioMesa repositorioMesa) : base("Mesa", repositorioMesa)
         {
